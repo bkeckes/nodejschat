@@ -24,6 +24,7 @@ app.get('/', function (req, res) {
 // Websocket
 io.sockets.on('connection', function (socket) {
 	// der Client ist verbunden
+	console.log('Ein Client wurde mit dem Server verbunden: '+ socket);
 	socket.emit('chat', { zeit: new Date(), text: 'Du bist nun mit dem Server verbunden!' });
 	// wenn ein Benutzer einen Text senden
 	socket.on('chat', function (data) {
